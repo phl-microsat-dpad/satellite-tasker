@@ -2,119 +2,152 @@
 
 {% block cssimports %}
 <style>
+    body {
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+
     #map {
         width: 100%;
         height: 100%;
     }
+
+    .main-content {
+        max-width: 800px;
+    }
+
 </style>
 {% endblock %}
 
 {% block content %}
-<h1>Imagery Request Form</h1>
 
-<form id="order-form">
-    <div class="form-group">
-        <label for="order-fname">First Name</label>
-        <input type="text" class="form-control" id="order-fname" placeholder="First Name" name="fname"/>
-    </div>
+<div class="main-content">
+    <h1>Imagery Request Form</h1>
 
-    <div class="form-group">
-        <label for="order-lname">Last Name</label>
-        <input type="text" class="form-control" id="order-lname" placeholder="Last Name" name="lname"/>
-    </div>
-
-    <div class="form-group">
-        <label for="order-institution">Institution</label>
-        <input type="text" class="form-control" id="order-lname" placeholder="Institution" name="institution"/>
-    </div>
-
-    <div class="form-group">
-        <label for="order-address-1">Address</label>
-        <input type="text" class="form-control" id="order-address-1" placeholder="Address Line 1" name="address-1"/>
-    </div>
-
-    <div class="form-group">
-        <input type="text" class="form-control" id="order-address-2" placeholder="Address Line 2" name="address-2"/>
-    </div>
-
-    <div class="form-group">
-        <label for="order-address-1">City</label>
-        <input type="text" class="form-control" id="order-city" placeholder="City" name="city"/>
-    </div>
-
-    <div class="form-group">
-        <label for="order-zip">Zip Code</label>
-        <input type="text" class="form-control" id="order-zip" placeholder="Zip" name="zip"/>
-    </div>
-
-    <div class="form-group">
-        <label for="order-email">Email Address</label>
-        <input type="email" class="form-control" id="order-email" placeholder="Email" name="email"/>
-    </div>
-    
-    <div class="form-group">
-        <label for="order-telephone">Telephone</label>
-        <input type="text" class="form-control" id="order-telephone" placeholder="Telephone" name="telephone"/>
-    </div>
-
-    <div class="form-group">
-        <label for="order-type">Fax</label>
-        <input type="text" class="form-control" id="order-fax" placeholder="Fax" name="fax"/>
-    </div>
-
-    <div class="form-group">
-        <div id="map"></div>
-    </div>
-
-    <div class="form-group">
-        <label for="order-field-of-app">Field of Application</label>
-        <div class="radio">
-            <label><input type="radio" name="field-of-app">Research</label>
+    <form id="order-form">
+        <div class="row">
+            <div class="form-group col-sm-6">
+                <label for="order-fname">First Name</label>
+                <input type="text" class="form-control" id="order-fname" placeholder="First Name" name="fname"/>
+            </div>
+            <div class="form-group col-sm-6">
+                <label for="order-lname">Last Name</label>
+                <input type="text" class="form-control" id="order-lname" placeholder="Last Name" name="lname"/>
+            </div>
         </div>
-        <div class="radio">
-            <label><input type="radio" name="field-of-app">Educational</label>
+
+        <div class="row">
+            <div class="form-group col-sm-12">
+                <label for="order-institution">Institution</label>
+                <input type="text" class="form-control" id="order-lname" placeholder="Institution" name="institution"/>
+            </div>
         </div>
-        <div class="radio">
-            <label><input type="radio" name="field-of-app" disabled>Operational/Commercial Demonstration</label>
+
+        <div class="row">
+            <div class="form-group col-sm-12">
+                <label for="order-address">Address</label>
+                <input type="text" class="form-control" id="order-address" placeholder="Address" name="address"/>
+            </div>
         </div>
-    </div>
 
-    <div class="form-group">
-        <label for="sel1">Primary Area of Study</label>
-        <select class="form-control" id="order-area-of-study" name="area-of-study">
-            <option>Agricultural</option>
-            <option>Climate / Atmospheric</option>
-            <option>Disaster and Calamities</option>
-            <option>Environmental Assessment</option>
-            <option>Infrastrucure</option>
-            <option>Scientific Research and Education</option>
-            <option>Water resources</option>
-            <option>Others</option>
-        </select>
-    </div>        
+        <div class="row">
+            <div class="form-group col-sm-6">
+                <label for="order-zip">Zip Code</label>
+                <input type="text" class="form-control" id="order-zip" placeholder="Zip" name="zip"/>
+            </div>
+        </div>
 
-    <div class="form-group">
-        <label for="sel1">Affiliation</label>
-        <select class="form-control" id="order-affiliation" name="affiliation">
-            <option>Government</option>
-            <option>Academe</option>
-            <option>NGO</option>
-            <option>Private</option>
-        </select>
-    </div>    
+        <div class="row">
+            <div class="form-group col-sm-6">
+                <label for="order-email">Email Address</label>
+                <input type="email" class="form-control" id="order-email" placeholder="Email" name="email"/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-sm-6">
+                <label for="order-telephone">Telephone</label>
+                <input type="text" class="form-control" id="order-telephone" placeholder="Telephone" name="telephone"/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-sm-6">
+                <label for="order-type">Fax</label>
+                <input type="text" class="form-control" id="order-fax" placeholder="Fax" name="fax"/>
+            </div>
+        </div>
 
-    <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+        <div class="row">
+            <div class="form-group col-sm-12">
+                <label>Area of Interest</label>
+                <div id="map"></div>
+            </div>
+        </div>
 
+        <div class="row">
+            <div class="form-group col-sm-6">
+                <label for="order-field-of-app">Field of Application</label>
+                <div class="radio">
+                    <label><input type="radio" name="field-of-app">Research</label>
+                </div>
+                <div class="radio">
+                    <label><input type="radio" name="field-of-app">Educational</label>
+                </div>
+                <div class="radio">
+                    <label><input type="radio" name="field-of-app">Operational/Commercial Demonstration</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group col-sm-6">
+                <label for="order-area-of-study">Primary Area of Study</label>
+                <select class="form-control" id="order-area-of-study" name="area-of-study">
+                    <option>Agricultural</option>
+                    <option>Climate / Atmospheric</option>
+                    <option>Disaster and Calamities</option>
+                    <option>Environmental Assessment</option>
+                    <option>Infrastrucure</option>
+                    <option>Scientific Research and Education</option>
+                    <option>Water resources</option>
+                    <option>Others</option>
+                </select>
+            </div>        
+        </div>
+
+        <div class="row">
+            <div class="form-group col-sm-6">
+                <label for="order-affiliation">Affiliation</label>
+                <select class="form-control" id="order-affiliation" name="affiliation">
+                    <option>Government</option>
+                    <option>Academe</option>
+                    <option>NGO</option>
+                    <option>Private</option>
+                </select>
+            </div>    
+        </div>
+
+        <div class="row">
+            <div class="form-group col-sm-6">
+                <label for="order-">Order Message</label>
+                <textarea class="form-control"></textarea>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
 {% endblock %}
-
 
 {% block jsimports %}
 <script type="text/javascript">
     $(document).ready(function(){
         $("#order-form").on("submit", function(e){
             e.preventDefault();
-            $.post("/api/order", $("#order-form").serializeArray());
+
+            var data = $("#order-form").serializeArray();
+            console.log(data);
+
+            $.post("/api/order", data);
         });
 
         initialize_map();
