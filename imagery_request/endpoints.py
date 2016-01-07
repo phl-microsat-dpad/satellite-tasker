@@ -6,7 +6,7 @@ parser.add_argument('fname', type=str)
 parser.add_argument('lname', type=str)
 parser.add_argument('institution', type=str)
 parser.add_argument('address', type=str)
-parser.add_argument('zip_code', type=str)
+parser.add_argument('zip', type=str)
 parser.add_argument('email', type=str)
 parser.add_argument('phone', type=str)
 parser.add_argument('fax', type=str)
@@ -26,7 +26,7 @@ class Orders(Resource):
             lastname=args.get('lname'),
             institution=args.get('institution'),
             address=args.get('address'),
-            zip_code=args.get('zip_code'),
+            zip_code=args.get('zip'),
             email=args.get('email'),
             phone=args.get('phone'),
             fax=args.get('fax'),
