@@ -166,7 +166,7 @@
             });
 
             // Send request
-            $.post($SCRIPT_ROOT + 'api/order'), data, function(){
+            $.post($SCRIPT_ROOT + 'api/order', data, function(){
                 window.location.replace('/thanks');
             });
         });
