@@ -23,7 +23,7 @@
 
         $('#task-order-list').DataTable({
             'ajax': {
-                'url': Flask.url_for('api.order'),
+                'url': $SCRIPT_ROOT + '/api/order',
                 'dataSrc': ''
             },
             'columns': [
