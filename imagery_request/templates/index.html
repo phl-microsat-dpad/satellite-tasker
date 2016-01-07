@@ -24,13 +24,84 @@
     </div>
 
     <div class="form-group">
+        <label for="order-institution">Institution</label>
+        <input type="text" class="form-control" id="order-lname" placeholder="Institution" name="institution"/>
+    </div>
+
+    <div class="form-group">
+        <label for="order-address-1">Address</label>
+        <input type="text" class="form-control" id="order-address-1" placeholder="Address Line 1" name="address-1"/>
+    </div>
+
+    <div class="form-group">
+        <input type="text" class="form-control" id="order-address-2" placeholder="Address Line 2" name="address-2"/>
+    </div>
+
+    <div class="form-group">
+        <label for="order-address-1">City</label>
+        <input type="text" class="form-control" id="order-city" placeholder="City" name="city"/>
+    </div>
+
+    <div class="form-group">
+        <label for="order-zip">Zip Code</label>
+        <input type="text" class="form-control" id="order-zip" placeholder="Zip" name="zip"/>
+    </div>
+
+    <div class="form-group">
         <label for="order-email">Email Address</label>
         <input type="email" class="form-control" id="order-email" placeholder="Email" name="email"/>
     </div>
     
     <div class="form-group">
+        <label for="order-telephone">Telephone</label>
+        <input type="text" class="form-control" id="order-telephone" placeholder="Telephone" name="telephone"/>
+    </div>
+
+    <div class="form-group">
+        <label for="order-type">Fax</label>
+        <input type="text" class="form-control" id="order-fax" placeholder="Fax" name="fax"/>
+    </div>
+
+    <div class="form-group">
         <div id="map"></div>
     </div>
+
+    <div class="form-group">
+        <label for="order-field-of-app">Field of Application</label>
+        <div class="radio">
+            <label><input type="radio" name="field-of-app">Research</label>
+        </div>
+        <div class="radio">
+            <label><input type="radio" name="field-of-app">Educational</label>
+        </div>
+        <div class="radio">
+            <label><input type="radio" name="field-of-app" disabled>Operational/Commercial Demonstration</label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="sel1">Primary Area of Study</label>
+        <select class="form-control" id="order-area-of-study" name="area-of-study">
+            <option>Agricultural</option>
+            <option>Climate / Atmospheric</option>
+            <option>Disaster and Calamities</option>
+            <option>Environmental Assessment</option>
+            <option>Infrastrucure</option>
+            <option>Scientific Research and Education</option>
+            <option>Water resources</option>
+            <option>Others</option>
+        </select>
+    </div>        
+
+    <div class="form-group">
+        <label for="sel1">Affiliation</label>
+        <select class="form-control" id="order-affiliation" name="affiliation">
+            <option>Government</option>
+            <option>Academe</option>
+            <option>NGO</option>
+            <option>Private</option>
+        </select>
+    </div>    
 
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
