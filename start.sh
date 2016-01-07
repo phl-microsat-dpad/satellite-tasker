@@ -1,0 +1,1 @@
+env/bin/uwsgi --ini uwsgi.imagery-request.ini && echo "Started: imagery-request"
