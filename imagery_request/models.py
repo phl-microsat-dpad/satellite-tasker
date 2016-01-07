@@ -1,4 +1,6 @@
-from imagery_request import db
+import datetime
+import json
+from imagery_request import db 
 from sqlalchemy import Column
 
 
@@ -19,6 +21,7 @@ class Order(db.Model):
     area_of_study = Column(db.String)
     affiliation = Column(db.String)
     message = Column(db.String)
+    created_date = Column(db.DateTime, default=datetime.datetime.utcnow)
 
     def __repr__(self):
         return "<Order(order_id='%s' email='%s')>" % (
@@ -36,9 +39,10 @@ class Order(db.Model):
             'email': self.email,
             'phone': self.phone,
             'fax': self.fax,
-            'area_of_interest': self.area_of_interest,
+            'area_of_interest': json.loads(self.area_of_interest),
             'field_of_application': self.field_of_application,
             'area_of_study': self.area_of_study,
             'affiliation': self.affiliation,
-            'message': self.message
+            'message': self.message,
+            'created_date': self.created_date.strftime("%Y-%m-%d %H:%H:%S")
         }

@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block cssimports %}
+{% endblock %}
+
+{% block content %}
+<table id="task-order-list" class="display" cellspacing="0" width="100%">
+    <thead>
+        <tr>
+            <th>Date Requested</th>
+            <th>Institution</th>
+            <th>Email</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+        </tr>
+    </thead>
+</table>
+{% endblock %}
+
+{% block jsimports %}
+<script type="text/javascript">
+    $(document).ready(function(){
+
+        $('#task-order-list').DataTable({
+            'ajax': {
+                'url': '/api/order',
+                'dataSrc': ''
+            },
+            'columns': [
+                {'data': 'created_date'},
+                {'data': 'institution'},
+                {'data': 'email'},
+                {'data': 'firstname'},
+                {'data': 'lastname'}
+            ]
+        });
+
+    });
+</script>
+{% endblock %}

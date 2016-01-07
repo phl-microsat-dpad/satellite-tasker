@@ -19,6 +19,7 @@
     "jquery": "~2.1.4",
     "bootstrap": "~3.3.6",
     "leaflet-areaselect": "*",
-    "leaflet": "~0.7.7"
+    "leaflet": "~0.7.7",
+    "datatables": "~1.10.10"
   }
 }

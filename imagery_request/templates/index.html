@@ -1,29 +1,11 @@
 {% extends "base.html" %}
 
 {% block cssimports %}
-<style>
-    body {
-        padding-top: 50px;
-        padding-bottom: 50px;
-    }
-
-    #map {
-        width: 100%;
-        height: 100%;
-    }
-
-    .main-content {
-        max-width: 800px;
-    }
-
-</style>
 {% endblock %}
 
 {% block content %}
 
 <div class="main-content">
-    <h1>Imagery Request Form</h1>
-
     <form id="order-form">
         <div class="row">
             <div class="form-group col-sm-6">
@@ -35,6 +17,7 @@
                 <input type="text" class="form-control" id="order-lname" placeholder="Last Name" name="lname"/>
             </div>
         </div>
+        <hr />
 
         <div class="row">
             <div class="form-group col-sm-12">
@@ -42,20 +25,19 @@
                 <input type="text" class="form-control" id="order-lname" placeholder="Institution" name="institution"/>
             </div>
         </div>
-
         <div class="row">
             <div class="form-group col-sm-12">
                 <label for="order-address">Address</label>
                 <input type="text" class="form-control" id="order-address" placeholder="Address" name="address"/>
             </div>
         </div>
-
         <div class="row">
             <div class="form-group col-sm-6">
                 <label for="order-zip">Zip Code</label>
                 <input type="text" class="form-control" id="order-zip" placeholder="Zip" name="zip"/>
             </div>
         </div>
+        <hr />
 
         <div class="row">
             <div class="form-group col-sm-6">
@@ -75,6 +57,7 @@
                 <input type="text" class="form-control" id="order-fax" placeholder="Fax" name="fax"/>
             </div>
         </div>
+        <hr />
 
         <div class="row">
             <div class="form-group col-sm-12">
@@ -82,18 +65,19 @@
                 <div id="map"></div>
             </div>
         </div>
+        <hr />
 
         <div class="row">
             <div class="form-group col-sm-6">
-                <label for="order-field-of-app">Field of Application</label>
+                <label for="order-field-of-application">Field of Application</label>
                 <div class="radio">
-                    <label><input type="radio" name="field-of-app">Research</label>
+                    <label><input type="radio" name="field-of-application-choices" value="Research">Research</label>
                 </div>
                 <div class="radio">
-                    <label><input type="radio" name="field-of-app">Educational</label>
+                    <label><input type="radio" name="field-of-application-choices" value="Educational">Educational</label>
                 </div>
                 <div class="radio">
-                    <label><input type="radio" name="field-of-app">Operational/Commercial Demonstration</label>
+                    <label><input type="radio" name="field-of-application-choices" value="Operational/Commercial Demonstration">Operational/Commercial Demonstration</label>
                 </div>
             </div>
         </div>
@@ -127,16 +111,11 @@
         </div>
 
         <div class="row">
-            <div class="form-group col-sm-6">
-                <label for="order-">Order Message</label>
-                <textarea class="form-control" name="message"></textarea>
+            <div class="form-group col-sm-12">
+                <label for="order-">More Details</label>
+                <textarea class="form-control" name="message" rows="20"></textarea>
             </div>
         </div>
-
-        <input type="hidden" id="order-sw-long" name="sw-long" />
-        <input type="hidden" id="order-sw-lat" name="sw-lat" />
-        <input type="hidden" id="order-ne-long" name="ne-long" />
-        <input type="hidden" id="order-ne-lat" name="ne-lat" />
 
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
@@ -151,9 +130,12 @@
         $("#order-form").on("submit", function(e){
             e.preventDefault();
 
+            // Serialize normal form element values
             var data = $("#order-form").serializeArray();
             console.log(data);
 
+            // Add GeoJson of selected area into serialized
+            // form values
             var bounds = areaSelect.getBounds();
             var sw = bounds._southWest;
             var ne = bounds._northEast;
@@ -175,12 +157,18 @@
             data.push({
                 name: "area-of-interest",
                 value: selection_geojson
-            })
+            });
 
-            console.log(sw);
-            console.log(ne);
-            console.log(selection_geojson);
-            $.post("/api/order", data);
+            // Add selected radio button             
+            data.push({
+                name: 'field-of-application',
+                value: $('input[name="field-of-application-choices"]:checked').val()
+            });
+
+            // Send request
+            $.post("/api/order", data, function(){
+                window.location.replace('/thanks');
+            });
         });
 
         initialize_map();
