@@ -1,6 +1,6 @@
 import datetime
 import json
-from imagery_request import db 
+from imagery_request import db
 from sqlalchemy import Column
 
 

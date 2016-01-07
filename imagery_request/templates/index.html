@@ -166,7 +166,7 @@
             });
 
             // Send request
-            $.post("/api/order", data, function(){
+            $.post(Flask.url_for('api.order'), data, function(){
                 window.location.replace('/thanks');
             });
         });

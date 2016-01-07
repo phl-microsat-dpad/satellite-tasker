@@ -7,6 +7,8 @@
         <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='bower-components/datatables/media/css/jquery.dataTables.min.css')}}" />
         <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/global.css')}}"/>
 
+        {{ JSGlue.include() }}
+
         {% block cssimports %}
         {% endblock %}
     </head>
