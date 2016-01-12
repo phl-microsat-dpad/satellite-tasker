@@ -20,6 +20,7 @@
     "bootstrap": "~3.3.6",
     "leaflet-areaselect": "*",
     "leaflet": "~0.7.7",
-    "datatables": "~1.10.10"
+    "datatables": "~1.10.10",
+    "roboto-fontface": "~0.4.3"
   }
 }

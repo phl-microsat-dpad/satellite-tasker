@@ -1,118 +1,170 @@
-{% extends "base.html" %}
-
-{% block cssimports %}
-{% endblock %}
-
-{% block content %}
-<div class="main-content">
-    <div class="row">
-        <div class="col-sm-2"><label>First Name:</label></div>
-        <div class="col-sm-5">{{data.firstname}}</div>
-    </div>
-    <div class="row">
-        <div class="col-sm-2"><label>Last Name:</label></div>
-        <div class="col-sm-5">{{data.lastname}}</div>
-    </div>
-    <br />
-
-    <div class="row">
-        <div class="col-sm-2"><label>Institution:</label></div>
-        <div class="col-sm-5">{{data.institution}}</div>
-    </div>
-    <div class="row">
-        <div class="col-sm-2"><label>Address:</label></div>
-        <div class="col-sm-5">{{data.address}}</div>
-    </div>
-    <div class="row">
-        <div class="col-sm-2"><label>Zip Code:</label></div>
-        <div class="col-sm-5">{{data.zip_code}}</div>
-    </div>
-    <br />
-
-    <div class="row">
-        <div class="col-sm-2"><label>Email:</label></div>
-        <div class="col-sm-5">{{data.email}}</div>
-    </div>
-
-    <div class="row">
-        <div class="col-sm-2"><label>Phone:</label></div>
-        <div class="col-sm-5">{{data.phone}}</div>
-    </div>
-    <div class="row">
-        <div class="col-sm-2"><label>Fax:</label></div>
-        <div class="col-sm-5">{{data.fax}}</div>
-    </div>
-    <br />
-
-    <div class="row">
-        <div class="col-sm-2"><label>Area of Interest</label></div>
-    </div>
-    <div class="row">
-        <div class="col-sm-10">
-            SW: {{data.area_of_interest.bbox[0], data.area_of_interest.bbox[1]}} 
+{% extends "base.html" %} {% block cssimports %} {% endblock %} {% block content %}
+<div class="main-content request-summary">
+    <h1 class="text-primary">{{data.order_id}} | Request Summary </h1>
+    <div class="row well">
+        <h3 class="form-section">Customer Information</h3>
+        <hr>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="col-sm-3">
+                    <label>Date of Request</label>
+                </div>
+                <div class="col-sm-9">{{data.created_date}}</div>
+            </div>
         </div>
-        <div class="col-sm-10">
-            NE: {{data.area_of_interest.bbox[2], data.area_of_interest.bbox[3]}}
+        <br />
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="col-sm-3">
+                    <label>First Name:</label>
+                </div>
+                <div class="col-sm-9"><strong>{{data.firstname}}</strong></div>
+            </div>
+            <div class="col-sm-12">
+                <div class="col-sm-3">
+                    <label>Last Name:</label>
+                </div>
+                <div class="col-sm-9"><strong>{{data.lastname}}</strong></div>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="col-sm-2">
+                    <label>Address:</label>
+                </div>
+                <div class="col-sm-10">{{data.address}}</div>
+            </div>
+            <div class="col-sm-12">
+                <div class="col-sm-2">
+                    <label>Zip Code:</label>
+                </div>
+                <div class="col-sm-5">{{data.zip_code}}</div>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="col-sm-2">
+                    <label>Institution:</label>
+                </div>
+                <div class="col-sm-5">{{data.institution}}</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="col-sm-2">
+                    <label>Affiliation:</label>
+                </div>
+                <div class="col-sm-5">{{data.affiliation}}</div>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="col-sm-2">
+                    <label>Phone:</label>
+                </div>
+                <div class="col-sm-5">{{data.phone}}</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="col-sm-2">
+                    <label>Fax:</label>
+                </div>
+                <div class="col-sm-5">{{data.fax}}</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="col-sm-2">
+                    <label>Email:</label>
+                </div>
+                <div class="col-sm-5">{{data.email}}</div>
+            </div>
+        </div>
+        <br />
+        <h3 class="form-section">Application</h3>
+        <hr>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="col-sm-3">
+                    <label>Field of Application:</label>
+                </div>
+                <div class="col-sm-5">{{data.field_of_application}}</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="col-sm-3">
+                    <label>Primary Area of Study:</label>
+                </div>
+                <div class="col-sm-5">{{data.area_of_study}}</div>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-sm-12">
+                <label>Other details:</label>
+                <p>{{data.message}}</p>
+            </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-sm-12">
-            <div id="map"></div>
+    <div class="row well">
+        <h3 class="form-section">Area of Interest</h3>
+        <hr>
+        <div class="row">
+            <div class="col-sm-12">
+                <label>SW:</label> <span>{{data.area_of_interest.bbox[0], data.area_of_interest.bbox[1]}} </span>
+            </div>
+            <div class="col-sm-12">
+                <label>NE:</label> <span> {{data.area_of_interest.bbox[2], data.area_of_interest.bbox[3]}}</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div id="map"></div>
+            </div>
         </div>
     </div>
     <br />
-
-    <div class="row">
-        <div class="col-sm-3"><label>Field of Application:</label></div>
-        <div class="col-sm-5">{{data.field_of_application}}</div>
-    </div>
-    <div class="row">
-        <div class="col-sm-3"><label>Primary Area of Study:</label></div>
-        <div class="col-sm-5">{{data.area_of_study}}</div>
-    </div>
-    <div class="row">
-        <div class="col-sm-3"><label>Affiliation:</label></div>
-        <div class="col-sm-5">{{data.affiliation}}</div>
-    </div>
-    <br />
-
-    <div class="row">
-        <div class="col-sm-12">
-            <label>OrderMessaage:</label>
-            <textarea class="form-control" rows="20">{{data.message}}</textarea>
-        </div>
-    </div>
-
-    <meta id="aoi-data" \
-        data-sw-lng="{{data.area_of_interest.bbox[0]}}" \
-        data-sw-lat="{{data.area_of_interest.bbox[1]}}" \
-        data-ne-lng="{{data.area_of_interest.bbox[2]}}" \
-        data-ne-lat="{{data.area_of_interest.bbox[3]}}">
-{% endblock %}
-
-{% block jsimports %}
-<script type="text/javascript">
+    <meta id="aoi-data" \ data-sw-lng="{{data.area_of_interest.bbox[0]}}" \ data-sw-lat="{{data.area_of_interest.bbox[1]}}" \ data-ne-lng="{{data.area_of_interest.bbox[2]}}" \ data-ne-lat="{{data.area_of_interest.bbox[3]}}"> {% endblock %} {% block jsimports %}
+    <script type="text/javascript">
     var areaSelect = null;
 
-    $(document).ready(function(){
+    $(document).ready(function() {
         initialize_map();
-    });    
+    });
 
-    function initialize_map(){
+    function initialize_map() {
         // initialize map
-        var map = L.map('map');
+        var map = L.map('map', {
+            dragging: false,
+            scrollWheelZoom: 'center'
+        });
 
-        var osmUrl='http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
-        var osmAttrib='Map data © <a href="http://openstreetmap.org">OpenStreetMap</a> contributors';
-        var osm = new L.TileLayer(osmUrl, {minZoom: 2, maxZoom: 12, attribution: osmAttrib});       
+        var osmUrl = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+        var osmAttrib = 'Map data © <a href="http://openstreetmap.org">OpenStreetMap</a> contributors';
+        var osm = new L.TileLayer(osmUrl, {
+            minZoom: 2,
+            maxZoom: 12,
+            attribution: osmAttrib
+        });
 
         map.setView(new L.LatLng(11.5, 121.8), 6);
         map.addLayer(osm);
 
         // define rectangle geographical bounds
         var aoi = $("#aoi-data").data()
-        var bounds = [[aoi.swLat, aoi.swLng], [aoi.neLat, aoi.neLng]];
-        L.rectangle(bounds, {color: "#ff7800", weight: 1}).addTo(map);
+        var bounds = [
+            [aoi.swLat, aoi.swLng],
+            [aoi.neLat, aoi.neLng]
+        ];
+        L.rectangle(bounds, {
+            color: "#ff7800",
+            weight: 1
+        }).addTo(map);
     }
-</script>
-{% endblock %}
+    </script>
+    {% endblock %}

@@ -1,3 +1,4 @@
+@import "less/_variables.less" @brand-primary: @indigo;
 body {
     padding-top: 50px;
     padding-bottom: 50px;
@@ -6,8 +7,66 @@ body {
 #map {
     width: 100%;
     height: 100%;
+    margin:5px;
 }
 
 .main-content {
-    max-width: 800px;
+    max-width: 1500px;
+}
+
+.form-group .checkbox label,
+.form-group .radio label,
+.form-group label {
+    color: rgba(23, 22, 22, 1);
+}
+
+.form-group label.control-label {
+    color: rgba(23, 22, 22, 1);
+    font-size
+}
+
+.form-group.label-floating.is-focused label.control-label,
+.form-group.label-floating:not(.is-empty) label.control-label,
+.form-group.label-static label.control-label {
+    font-size: 14px;
+}
+
+.form-section {
+    color: #938E8E;
+    margin-top: 10px;
+    margin-bottom: 0px;
+}
+
+.form-section-map {
+	color: #938E8E;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#map-box{
+	margin: 0px 0px 0px;
+}
+
+.orders-header{
+	margin-bottom: 30px;
+}
+
+#request-table{
+	box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.2), 0px 2px 6px 0px rgba(0, 0, 0, 0.19);
+}
+
+#request-table label{
+	color: rgba(134, 129, 129, 1)
+}
+
+#success-footer{
+	background-color: #4CAF50;
+}
+
+.request-summary label{
+	color: rgba(23, 22, 22, 1);
+}
+
+.request-summary h1{
+	margin-bottom:30px;
 }

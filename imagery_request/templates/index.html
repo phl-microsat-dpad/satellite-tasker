@@ -1,197 +1,184 @@
-{% extends "base.html" %}
-
-{% block cssimports %}
-{% endblock %}
-
-{% block content %}
-
+{% extends "base.html" %} {% block cssimports %} {% endblock %} {% block content %}
 <div class="main-content">
+    <h1 class="text-primary">Imagery Request</h1>
+    <hr>
     <form id="order-form">
-        <div class="row">
-            <div class="form-group col-sm-6">
-                <label for="order-fname">First Name</label>
-                <input type="text" class="form-control" id="order-fname" placeholder="First Name" name="fname"/>
-            </div>
-            <div class="form-group col-sm-6">
-                <label for="order-lname">Last Name</label>
-                <input type="text" class="form-control" id="order-lname" placeholder="Last Name" name="lname"/>
-            </div>
-        </div>
-        <hr />
-
-        <div class="row">
-            <div class="form-group col-sm-12">
-                <label for="order-institution">Institution</label>
-                <input type="text" class="form-control" id="order-lname" placeholder="Institution" name="institution"/>
-            </div>
-        </div>
-        <div class="row">
-            <div class="form-group col-sm-12">
-                <label for="order-address">Address</label>
-                <input type="text" class="form-control" id="order-address" placeholder="Address" name="address"/>
-            </div>
-        </div>
-        <div class="row">
-            <div class="form-group col-sm-6">
-                <label for="order-zip">Zip Code</label>
-                <input type="text" class="form-control" id="order-zip" placeholder="Zip" name="zip"/>
-            </div>
-        </div>
-        <hr />
-
-        <div class="row">
-            <div class="form-group col-sm-6">
-                <label for="order-email">Email Address</label>
-                <input type="email" class="form-control" id="order-email" placeholder="Email" name="email"/>
-            </div>
-        </div>
-        <div class="row">
-            <div class="form-group col-sm-6">
-                <label for="order-phone">Phone</label>
-                <input type="text" class="form-control" id="order-phone" placeholder="Phone" name="phone"/>
-            </div>
-        </div>
-        <div class="row">
-            <div class="form-group col-sm-6">
-                <label for="order-type">Fax</label>
-                <input type="text" class="form-control" id="order-fax" placeholder="Fax" name="fax"/>
-            </div>
-        </div>
-        <hr />
-
-        <div class="row">
-            <div class="form-group col-sm-12">
-                <label>Area of Interest</label>
-                <div id="map"></div>
-            </div>
-        </div>
-        <hr />
-
-        <div class="row">
-            <div class="form-group col-sm-6">
-                <label for="order-field-of-application">Field of Application</label>
-                <div class="radio">
-                    <label><input type="radio" name="field-of-application-choices" value="Research">Research</label>
+        <div class="col-lg-12">
+            <div class="row well">
+                <h3 class="form-section">Customer Information</h3>
+                <br>
+                <div class="form-group label-static is-empty col-sm-6">
+                    <label class="control-label" for="order-fname">First Name</label>
+                    <input type="text" class="form-control" id="order-fname" placeholder="First Name" name="fname" />
                 </div>
-                <div class="radio">
-                    <label><input type="radio" name="field-of-application-choices" value="Educational">Educational</label>
+                <div class="form-group label-static is-empty col-sm-6">
+                    <label class="control-label" for="order-lname">Last Name</label>
+                    <input type="text" class="form-control" id="order-lname" placeholder="Last Name" name="lname" />
                 </div>
-                <div class="radio">
-                    <label><input type="radio" name="field-of-application-choices" value="Operational/Commercial Demonstration">Operational/Commercial Demonstration</label>
+                <div class="form-group label-static is-empty col-sm-12">
+                    <label class="control-label" for="order-address">Address</label>
+                    <input type="text" class="form-control" id="order-address" placeholder="Address" name="address" />
+                </div>
+                <div class="form-group label-static is-empty col-sm-6">
+                    <label class="control-label" for="order-zip">Zip Code</label>
+                    <input type="text" class="form-control" id="order-zip" placeholder="Zip" name="zip" />
+                </div>
+                <hr>
+            </div>
+            <div class="row well">
+                <div class="col-md-6">
+                    <div class="form-group label-static is-empty col-sm-12">
+                        <label class="control-label" for="order-institution">Institution</label>
+                        <input type="text" class="form-control" id="order-lname" placeholder="Institution" name="institution" />
+                    </div>
+                    <div class="form-group label-static is-empty col-sm-6">
+                        <label class="control-label" for="order-affiliation">Affiliation</label>
+                        <select class="form-control" id="order-affiliation" name="affiliation">
+                            <option>Government</option>
+                            <option>Academe</option>
+                            <option>NGO</option>
+                            <option>Private</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group label-static is-empty  col-md-6">
+                        <label class="control-label" for="order-phone">Phone</label>
+                        <input type="text" class="form-control" id="order-phone" placeholder="Phone" name="phone" />
+                    </div>
+                    <div class="form-group label-static is-empty col-sm-6">
+                        <label class="control-label" for="order-type">Fax</label>
+                        <input type="text" class="form-control" id="order-fax" placeholder="Fax" name="fax" />
+                    </div>
+                    <div class="form-group label-static is-empty col-md-6">
+                        <label class="control-label" for="order-email">Email Address</label>
+                        <input type="email" class="form-control" id="order-email" placeholder="Email" name="email" />
+                    </div>
                 </div>
             </div>
-        </div>
-
-        <div class="row">
-            <div class="form-group col-sm-6">
-                <label for="order-area-of-study">Primary Area of Study</label>
-                <select class="form-control" id="order-area-of-study" name="area-of-study">
-                    <option>Agricultural</option>
-                    <option>Climate / Atmospheric</option>
-                    <option>Disaster and Calamities</option>
-                    <option>Environmental Assessment</option>
-                    <option>Infrastrucure</option>
-                    <option>Scientific Research and Education</option>
-                    <option>Water resources</option>
-                    <option>Others</option>
-                </select>
-            </div>        
-        </div>
-
-        <div class="row">
-            <div class="form-group col-sm-6">
-                <label for="order-affiliation">Affiliation</label>
-                <select class="form-control" id="order-affiliation" name="affiliation">
-                    <option>Government</option>
-                    <option>Academe</option>
-                    <option>NGO</option>
-                    <option>Private</option>
-                </select>
-            </div>    
-        </div>
-
-        <div class="row">
-            <div class="form-group col-sm-12">
-                <label for="order-">More Details</label>
-                <textarea class="form-control" name="message" rows="20"></textarea>
+            <div class="row well">
+                <div class="col-md-6">
+                    <h3 class="form-section">Application</h3>
+                    <div class="form-group label-static is-empty col-sm-12">
+                        <label for="order-field-of-application">Field of Application</label>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="field-of-application-choices" value="Research">Research</label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="field-of-application-choices" value="Educational">Educational</label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="field-of-application-choices" value="Operational/Commercial Demonstration">Operational/Commercial Demonstration</label>
+                        </div>
+                    </div>
+                    <div class="form-group label-static is-empty col-sm-12">
+                        <label for="order-area-of-study">Primary Area of Study</label>
+                        <select class="form-control" id="order-area-of-study" name="area-of-study">
+                            <option>Agricultural</option>
+                            <option>Climate / Atmospheric</option>
+                            <option>Disaster and Calamities</option>
+                            <option>Environmental Assessment</option>
+                            <option>Infrastrucure</option>
+                            <option>Scientific Research and Education</option>
+                            <option>Water resources</option>
+                            <option>Others</option>
+                        </select>
+                    </div>
+                    <div class="form-group label-static is-empty col-sm-12">
+                        <label for="order-">More Details</label>
+                        <textarea class="form-control" name="message" rows="10" placeholder="Supplementary description of the application"></textarea>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group label-static is-empty col-sm-12" id="map-box">
+                        <h3 class="form-section-map">Select Area of Interest</h3>
+                        <div id="map"></div>
+                    </div>
+                </div>
             </div>
         </div>
-
-        <button id="order-submit-button" type="submit" class="btn btn-primary">Submit</button>
+        <div class="col-md-12">
+            <button id="order-submit-button" type="submit" class="btn btn-primary btn-raised btn-lg">Submit</button>
+        </div>
     </form>
 </div>
-{% endblock %}
-
-{% block jsimports %}
+{% endblock %} {% block jsimports %}
 <script type="text/javascript">
-    var areaSelect = null;
+var areaSelect = null;
 
-    $(document).ready(function(){
-        $("#order-form").on("submit", function(e){
-            e.preventDefault();
-            $('#order-submit-button').prop('disabled', true);
+$(document).ready(function() {
+    $("#order-form").on("submit", function(e) {
+        e.preventDefault();
+        $('#order-submit-button').prop('disabled', true);
 
-            // Serialize normal form element values
-            var data = $("#order-form").serializeArray();
-            console.log(data);
+        // Serialize normal form element values
+        var data = $("#order-form").serializeArray();
+        console.log(data);
 
-            // Add GeoJson of selected area into serialized
-            // form values
-            var bounds = areaSelect.getBounds();
-            var sw = bounds._southWest;
-            var ne = bounds._northEast;
+        // Add GeoJson of selected area into serialized
+        // form values
+        var bounds = areaSelect.getBounds();
+        var sw = bounds._southWest;
+        var ne = bounds._northEast;
 
-            var selection_geojson = JSON.stringify({
-                "type": "Feature",
-                "bbox": [sw.lng, sw.lat, ne.lng, ne.lat],
-                "geometry": {
-                    "type": "Polygon",
-                    "coordinates": [
-                        [sw.lng, sw.lat],
-                        [sw.lng, ne.lat],
-                        [ne.lng, ne.lat],
-                        [ne.lng, sw.lat]
-                    ]
-                }
-            });
-
-            data.push({
-                name: "area-of-interest",
-                value: selection_geojson
-            });
-
-            // Add selected radio button             
-            data.push({
-                name: 'field-of-application',
-                value: $('input[name="field-of-application-choices"]:checked').val()
-            });
-
-            // Send request
-            $.post($SCRIPT_ROOT + '/api/order', data, function(){
-                window.location.replace($SCRIPT_ROOT + '/thanks');
-            });
+        var selection_geojson = JSON.stringify({
+            "type": "Feature",
+            "bbox": [sw.lng, sw.lat, ne.lng, ne.lat],
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [sw.lng, sw.lat],
+                    [sw.lng, ne.lat],
+                    [ne.lng, ne.lat],
+                    [ne.lng, sw.lat]
+                ]
+            }
         });
 
-        initialize_map();
-    });    
-
-    function initialize_map(){
-        // initialize map
-        var map = L.map('map');
-
-        var osmUrl='http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
-        var osmAttrib='Map data © <a href="http://openstreetmap.org">OpenStreetMap</a> contributors';
-        var osm = new L.TileLayer(osmUrl, {minZoom: 2, maxZoom: 12, attribution: osmAttrib});       
-
-        map.setView(new L.LatLng(11.5, 121.8), 6);
-        map.addLayer(osm);
-
-        // add AreaSelect with keepAspectRatio:true
-        areaSelect = L.areaSelect({
-            width:100, 
-            height:100, 
+        data.push({
+            name: "area-of-interest",
+            value: selection_geojson
         });
-        areaSelect.addTo(map);
-    }
+
+        // Add selected radio button             
+        data.push({
+            name: 'field-of-application',
+            value: $('input[name="field-of-application-choices"]:checked').val()
+        });
+
+        // Send request
+        $.post($SCRIPT_ROOT + '/api/order', data, function() {
+            window.location.replace($SCRIPT_ROOT + '/thanks');
+        });
+    });
+
+    initialize_map();
+});
+
+function initialize_map() {
+    // initialize map
+    var map = L.map('map');
+
+    var osmUrl = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+    var osmAttrib = 'Map data © <a href="http://openstreetmap.org">OpenStreetMap</a> contributors';
+    var osm = new L.TileLayer(osmUrl, {
+        minZoom: 2,
+        maxZoom: 12,
+        attribution: osmAttrib
+    });
+
+    map.setView(new L.LatLng(11.5, 121.8), 6);
+    map.addLayer(osm);
+
+    // add AreaSelect with keepAspectRatio:true
+    areaSelect = L.areaSelect({
+        width: 100,
+        height: 100,
+    });
+    areaSelect.addTo(map);
+}
 </script>
 {% endblock %}
