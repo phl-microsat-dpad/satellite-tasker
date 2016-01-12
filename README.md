@@ -18,4 +18,4 @@ This module is currently composed of 3 pages:
 - Initialize database: `python create_db.py`
 - Run the app: `python run.py`
 
-Note: The app will run at port `3000`. (eg. `http://localhost:3000/tasking`)
+Note: The app will run at port `3000`. (eg. `http://localhost:3000/orders`)
