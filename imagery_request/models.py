@@ -20,7 +20,7 @@ class Order(db.Model):
     field_of_application = Column(db.String)
     area_of_study = Column(db.String)
     affiliation = Column(db.String)
-    message = Column(db.String)
+    message = Column(db.Text)
     created_date = Column(db.DateTime, default=datetime.datetime.utcnow)
 
     def __repr__(self):

@@ -117,7 +117,7 @@
             </div>
         </div>
 
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button id="order-submit-button" type="submit" class="btn btn-primary">Submit</button>
     </form>
 </div>
 {% endblock %}
@@ -129,6 +129,7 @@
     $(document).ready(function(){
         $("#order-form").on("submit", function(e){
             e.preventDefault();
+            $('#order-submit-button').prop('disabled', true);
 
             // Serialize normal form element values
             var data = $("#order-form").serializeArray();
@@ -166,8 +167,8 @@
             });
 
             // Send request
-            $.post(Flask.url_for('api.order'), data, function(){
-                window.location.replace('/thanks');
+            $.post($SCRIPT_ROOT + '/api/order', data, function(){
+                window.location.replace($SCRIPT_ROOT + '/thanks');
             });
         });
 

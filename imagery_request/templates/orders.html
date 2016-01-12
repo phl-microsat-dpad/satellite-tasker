@@ -7,11 +7,13 @@
 <table id="task-order-list" class="display" cellspacing="0" width="100%">
     <thead>
         <tr>
+            <th>ID</th>
             <th>Date Requested</th>
             <th>Institution</th>
             <th>Email</th>
             <th>First Name</th>
             <th>Last Name</th>
+            <th></th>
         </tr>
     </thead>
 </table>
@@ -23,15 +25,24 @@
 
         $('#task-order-list').DataTable({
             'ajax': {
-                'url': Flask.url_for('api.order'),
+                'url': $SCRIPT_ROOT + '/api/order',
                 'dataSrc': ''
             },
             'columns': [
+                {'data': 'order_id'},
                 {'data': 'created_date'},
                 {'data': 'institution'},
                 {'data': 'email'},
                 {'data': 'firstname'},
-                {'data': 'lastname'}
+                {'data': 'lastname'},
+                {
+                    'data': 'order_id',
+                    'fnCreatedCell': function(nTd, sData, oData, iRow, iCol) {
+                        var url = $SCRIPT_ROOT + '/orders/' + oData.order_id;
+                        console.log(url);
+                        $(nTd).html("<a href='" + url + "'>View</a>");
+                    }
+                }
             ]
         });
 

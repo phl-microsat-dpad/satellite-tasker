@@ -1,12 +1,19 @@
+import logging
 from flask import Flask
 from flask_restful import Api
-from flask_jsglue import JSGlue
 from flask.ext.sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
+app.debug = True
 app.config.from_object('config')
 
-jsglue = JSGlue(app)
+# Setup Logging
+formatter = logging.Formatter(app.config.get('LOG_FORMAT'))
+fh = logging.FileHandler(filename=app.config.get('LOG_FILE'))
+fh.setFormatter(formatter)
+fh.setLevel(logging.DEBUG)
+app.logger.addHandler(fh)
+
 db = SQLAlchemy(app)
 
 from imagery_request import views, models, endpoints
