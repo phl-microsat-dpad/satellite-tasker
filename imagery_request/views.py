@@ -22,4 +22,4 @@ def view(order_id):
 
 @app.route('/thanks')
 def thanks():
-    return "Success!"
+    return render_template('success.html')
