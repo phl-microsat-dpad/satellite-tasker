@@ -1,3 +1,5 @@
 {
-  "directory": "imagery_request/static/bower-components/"
+  "directory": "imagery_request/static/bower-components/",
+  "proxy": "http://proxy.upd.edu.ph:8080",
+  "https-proxy": "http://proxy.upd.edu.ph:8080"
 }
